@@ -112,7 +112,7 @@ nav{
     position: absolute;
     width: 150px;
     height: 150px;
-    background:url('/Portfolio/images/logo1.jpeg');
+    background:url('images/logo1.jpeg');
     background-size:cover;
     border-radius: 50%;
     filter: brightness(.5) contrast(1.5) ;
