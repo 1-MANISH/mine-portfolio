@@ -1,0 +1,166 @@
+/* ------media query------- */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Alumni+Sans+Collegiate+One&family=Amatic+SC&family=Bangers&family=Bebas+Neue&family=Blaka+Hollow&family=Bungee+Shade&family=Bungee+Spice&family=Caveat:wght@700&family=Chewy&family=Codystar:wght@300;400&family=Creepster&family=Dawning+of+a+New+Day&family=DynaPuff&family=Fasthand&family=Fredoka+One&family=Gloria+Hallelujah&family=Great+Vibes&family=Inconsolata:wght@200&family=Inspiration&family=Island+Moments&family=Josefin+Sans:wght@300&family=Kanit:wght@100&family=Marck+Script&family=Megrim&family=Mukta:wght@400;700;800&family=Nabla&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,500;1,400;1,500&family=Quantico:ital,wght@0,400;0,700;1,400&family=Roboto+Mono&family=Rubik+Burned&family=Rubik+Distressed&family=Satisfy&family=Shadows+Into+Light&family=Silkscreen&family=Splash&family=VT323&family=Yellowtail&family=Yuji+Mai&display=swap');
+
+
+/* -----------> Root Properties <------------- */
+:root{
+    --purple: #682ae9;
+    --light: #dbdbdb;
+    --header-link: #dbdbdb;
+    --header-link-hover: #682ae9;
+    --header-link-hover-icon: #dbdbdb;
+    --header-link-active: #555;
+    --bg: #0e1212;
+    --bg-rgb: 14,18,18;
+    --bgLight: radial-gradient(var(--bg),transparent,var(--purple) 130%);
+    --gray: grey;
+    --textcomment: #555;
+    --bg-color:#031a30;
+
+    --text-pcard-Head:#020826;
+    --text-pcard-para:#716040;
+
+	--formColor: #020f1d;
+    --projectCardColor: #eaddcf;
+}
+
+
+/*  ------------Css setters----------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+@media only screen and (max-width:1100px) {
+    nav{
+        background: var(--bg);
+        border-right: 2px solid var(--purple);
+        text-shadow: 0 0  15px var(--purple);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        bottom: 0;
+        left: -100%;
+        z-index: 1;
+        transition: all 0.8s;
+    }
+    #mainSection{
+        width: 100vw;
+        padding: 8vmax;
+    }
+    .burger{
+        visibility: visible;
+    }
+    .add-resp{
+        left: 0;
+    }
+    .cross{
+        visibility: visible;
+		cursor: pointer;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+    }
+    .contactSection  .contactSectionContain{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .contactSection  .contactSectionContain .cleft{
+        width: 100%;
+    }
+    .contactSection  .contactSectionContain .cright{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:990px) {
+    .educationSection .educationSectionContain{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .skillSection .skillSectionContain{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .educationSection .educationSectionContain .eduBx{
+        width: 100%;
+ 
+    }
+    .skillSection{
+        width: 100%;
+    }
+    .skillSection .skillSectionContain .bx{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .skillSection .skillSectionContain .bx > h4,h6{
+        text-align: center;
+    }
+    .skillSection .skillSectionContain .bx >div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .skillSection .skillSectionContain .bx >div>img{
+        margin: 10px 20px;
+    }
+
+    .box {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .innner-bx{
+        margin: 20px 0;
+        width: 60vw;
+    }
+    .in-bx-top{
+        width: 60%;
+    }
+    .in-bx-mid{
+        width: 80%;
+    }
+    .in-bx-mid img{
+        width: 60%;
+        height: 60%;
+    }
+    .in-bx-about{
+        width: 80%; 
+    }
+    .in-bx-about p{
+        line-height: 1.5rem;
+    }
+    .in-bx-bottom{
+        text-align: center;
+        width: 60%;
+    }
+    .qoutePara p{
+        font-size: 1.5rem;
+    }
+
+}
+
+@media only screen and (max-width:500px){
+    .profileIntro2{
+        display: flex;
+        flex-direction: column;
+    }
+    .profileIntro3{
+        flex-direction: column;
+    }
+    .qoutePara p{
+        font-size: 1.2rem;
+    }
+    .Cmsg{
+        flex-direction: column;
+    }
+}

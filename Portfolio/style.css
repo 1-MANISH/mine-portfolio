@@ -1,0 +1,1442 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Alumni+Sans+Collegiate+One&family=Amatic+SC&family=Bangers&family=Bebas+Neue&family=Blaka+Hollow&family=Bungee+Shade&family=Bungee+Spice&family=Caveat:wght@700&family=Chewy&family=Codystar:wght@300;400&family=Creepster&family=Dawning+of+a+New+Day&family=DynaPuff&family=Fasthand&family=Fredoka+One&family=Gloria+Hallelujah&family=Great+Vibes&family=Inconsolata:wght@200&family=Inspiration&family=Island+Moments&family=Josefin+Sans:wght@300&family=Kanit:wght@100&family=Marck+Script&family=Megrim&family=Mukta:wght@400;700;800&family=Nabla&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,500;1,400;1,500&family=Quantico:ital,wght@0,400;0,700;1,400&family=Roboto+Mono&family=Rubik+Burned&family=Rubik+Distressed&family=Satisfy&family=Shadows+Into+Light&family=Silkscreen&family=Splash&family=VT323&family=Yellowtail&family=Yuji+Mai&display=swap');
+
+
+/* -----------> Root Properties <------------- */
+:root{
+    --purple: #682ae9;
+    --light: #dbdbdb;
+    --header-link: #dbdbdb;
+    --header-link-hover: #682ae9;
+    --header-link-hover-icon: #dbdbdb;
+    --header-link-active: #555;
+    --bg: #0e1212;
+    --bg-rgb: 14,18,18;
+    --bgLight: radial-gradient(var(--bg),transparent,var(--purple) 130%);
+    --gray: grey;
+    --textcomment: #555;
+    --bg-color:#031a30;
+
+    --text-pcard-Head:#020826;
+    --text-pcard-para:#716040;
+
+	--formColor: #020f1d;
+    --projectCardColor: #eaddcf;
+
+}
+
+
+/*  ------------Css setters----------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    scroll-behavior: smooth;
+    cursor: none;
+}
+body{
+    background: var(--bg);
+}
+
+
+/* -------------Custom cursor---------------- */
+.cursor{
+    z-index: 100000000;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #ff2972;
+    pointer-events: none;
+}
+.cursor::after{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ff2972;
+    border-radius: 100%;
+    content: "";
+    position: absolute;
+    top: -4%;
+    left: -4%;
+    transition: all 3s;
+    animation: cursorMoves 2s infinite linear alternate;
+}
+@keyframes cursorMoves {
+    from{
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    to{
+        transform: scale(1.9);
+        opacity: 0.6;
+    }
+}
+
+
+/*  ------------  NavBar ---------------- */
+nav{
+    background: var(--bg);
+    box-shadow: 0 0 3px var(--header-link-hover);
+    /* border-right: 2px solid var(--purple); */
+    text-shadow: 0 0  15px var(--purple);
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.designLogo{
+    /* border: 1px solid red; */
+    font-family: 'VT323', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+}
+.circle{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* background-color: #ccc; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background:url('/images/logo1.jpeg');
+    background-size:cover;
+    border-radius: 50%;
+    filter: brightness(.5) contrast(1.5) ;
+
+}
+.text{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: animateText 10s linear infinite;
+}
+
+@keyframes animateText{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.text span{
+    position: absolute;
+    left: 50%;
+    font-size: 1.2rem;
+    transform-origin:  0 100px;
+
+}
+
+.textLogo {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textLogo h4{
+    font-size: 2.8rem;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+}
+.textLogo h4 span{
+    color: var(--purple);
+}
+.textLogo p{
+    font-size: 1.3rem;
+    font-family: 'Advent Pro', sans-serif;
+    color: var(--gray);
+    text-align: center;
+}
+
+.navIcons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navIcons div{
+    width: 40px ;
+    height: 40px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navIcons div a i{
+    cursor: pointer;
+    color: var(--header-link);
+    font-size: 2.5rem;
+}
+.navIcons div a i:hover{
+    color: var(--header-link-hover);
+}
+.navIcons div a i:active{
+    color: var(--header-link-active);
+}
+.active-btn a i{
+    border-bottom: 2px solid var(--purple);
+}
+
+.burger{
+        z-index: 10000;
+    	/* border: 2px solid red; */
+        position: fixed;
+        float: right;
+        top: 27px;
+        right: 30px;
+        width: 28px;
+        height: 30px;
+        cursor: pointer;
+        align-items: center;
+        visibility: hidden;
+}
+.burger .line{
+        margin:6px 1px;
+        width:24px;
+        height: 2px;
+        background: var(--purple);
+}
+
+.cross{
+	visibility: hidden;
+}
+.cross span{
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: .3vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cross span i{
+    font-size: 1.2rem;
+}
+
+/* ---------------------- Whole website main page ------------------- */
+
+#mainSection{
+    background-color: var(--bg);
+    min-height: 100vh;
+    width: 79vw;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+
+
+/* ----------Secial media handles ------------ */
+.socialMediahandle{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    /* border: 1px solid red; */
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    z-index: 10000;
+}
+.menu{
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    transition: 0.5s;
+    transition-delay: calc(0.1s*var(--i));
+    transform-origin: 140px;
+    transform: rotate(0deg) translate(110px);
+
+}
+.menu.active li{
+    transform: rotate(calc(360deg/ 8 * var(--i))) translate(0px);
+}
+.menu li a {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    color: var(--clr);
+    border: 2px solid var(--clr);
+    border-radius: 50%;
+    transform: rotate(calc(360deg/ -8 * var(--i))) translate(0px);
+    transition: 1s;
+}
+.menu li a ion-icon{
+    font-size: 1.5rem;
+    color: var(--clr);
+}
+.menu li a:hover{
+    transition: 0s;
+    background-color: var(--clr);
+    color:#333;
+    box-shadow: 0 0 10px var(--clr),
+    0 0 30px var(--clr),
+    0 0 50px var(--clr) ;
+}
+
+.menu .toggle{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #2f363e;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 2rem;
+    transition: transform 1.25s;
+}
+.menu.active .toggle{
+    transform: rotate(315deg);
+}
+
+
+
+
+
+/*  ------------------Home section ------------------------ */
+#home{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeSection{
+    /* border: 1px solid var(--purple); */
+    padding: 2vmax;
+    
+}
+.name-intro1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3rem;
+    color: var(--light);
+}
+.name-intro1 span{
+    font-weight: 900;
+    color: var(--purple);
+}
+.name-intro2{
+    color: var(--purple);
+    font-size: 4rem;
+    font-family: 'Quantico', sans-serif;
+}
+.about-intro{
+    font-family: 'Codystar', cursive;
+    font-size: 1.3rem;
+}
+.work-into{
+    margin: 8px 0;
+    font-family: 'Codystar', cursive;
+    font-size: .9rem;
+}
+.Hmid-btn{
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-family: 'Mukta', sans-serif;
+    background-color: var(--purple);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: black;
+}
+.Hmid-btn:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+.scroll-up-btn{
+    margin-top: 26px;
+}
+.sc-d{
+    font-family: 'Advent Pro', sans-serif;
+}
+.sc-d a{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.sc-d a i{
+    transition: all 0.2s;
+    animation:colorChange 10s linear  infinite  
+}
+
+
+
+/* -----------------About me section--------------- */
+#about{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.aboutmeSection{
+    min-height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+}
+.aboutmeSection h2{
+    color: var(--purple);
+    margin: 12px 30px;
+    font-family: 'Yuji Mai', serif;
+}
+/* .aboutmeSection h2 .outer{
+    width: 110px;
+    height: 5px;
+    border: 1px solid var(--gray);
+    border-radius: 15%;
+}
+.aboutmeSection h2 .inner{
+    width: 10px;
+    height: 5px;
+    background-color: var(--gray);
+    border-radius: 15%;
+    animation: animateDesign 3s  infinite;
+	animation-timing-function: linear;
+}
+@keyframes animateDesign {
+    0%{
+        margin-left: 0px;
+       }
+     10%{
+          margin-left: 10px;
+       }
+     20%{
+          margin-left: 20px;
+       }
+     30%{
+          margin-left: 30px;
+       }
+     40%{
+          margin-left: 40px;
+       }
+     50%{
+          margin-left: 50px;
+       }
+     60% {
+          margin-left: 60px;
+       }
+     70% {
+          margin-left: 70px;
+       }
+     80%{
+          margin-left: 80px;
+       }
+     90%{
+          margin-left: 90px;
+       }
+     100%{
+          margin-left: 100px;
+       }
+} */
+
+.aboutmeSection h2 span{
+    color: var(--purple);
+}
+
+.aboutmeSection .aboutmeContain{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: 92px auto;
+}
+.aboutmeSection .aboutmeContain h1{
+    font-family: 'Yuji Mai', serif;
+    font-size: 3rem;
+}
+.aboutmeSection .aboutmeContain h1 span{
+    color: var(--purple);
+}
+.aboutmeSection .aboutmeContain .links{
+    margin: 26px 0;
+    display: flex;
+    align-items: center;
+}
+.aboutmeSection .aboutmeContain .links a{
+   font-family: 'Advent Pro', sans-serif;
+   font-size: 1.8rem;
+   margin-right: 10px;
+   
+}
+.aboutmeSection .aboutmeContain .links ion-icon{
+   color: lightgreen;
+   border-radius: 50%;
+}
+.aboutmeSection .aboutmeContain .links ion-icon:hover{
+    color: var(--bg);
+    background:lightgreen;;
+    box-shadow: 0 0 10px lightgreen,
+    0 0 10px lightgreen,
+    0 0 10px lightgreen;
+}
+.aboutmeSection .aboutmeContain .links p{
+   font-family: 'Advent Pro', sans-serif;
+   font-size: 1.5rem;
+   margin-right: 10px;
+}
+.aboutmeSection .aboutmeContain .links button{
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70px;
+    height: 30px;
+    border-radius: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--purple);
+    color: var(--gray);
+}
+.aboutmeSection .aboutmeContain .links button a ion-icon{
+    color: inherit;
+    font-size: 1.2rem;
+}
+.aboutmeSection .aboutmeContain .links button:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+
+.aboutmeSection .aboutmeContain .profileIntro p{
+    font-family: 'Quantico', sans-serif;
+    font-size: 1.6rem;
+    line-height: 35px;
+    word-spacing: 5px;
+    letter-spacing: 5px;
+    color: var(--purple);
+
+}
+.aboutmeSection .aboutmeContain .profileIntro1{
+    margin: 20px 0;
+    
+}
+.aboutmeSection .aboutmeContain .profileIntro1 p{
+    font-family: 'Quantico', sans-serif;
+    font-weight: 100;
+    color: var(--textcomment);
+    letter-spacing: 5px;
+    
+}
+.aboutmeSection .aboutmeContain h3{
+    font-family: 'Quantico', sans-serif;
+    font-size: 1.3rem;
+    margin: 10px 0;
+
+}
+.aboutmeSection .aboutmeContain .profileIntro2{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.aboutmeSection .aboutmeContain .profileIntro2 div  h4 , p{
+    letter-spacing: 5px;
+    font-family: 'Quantico', sans-serif;
+    font-size: 1.2rem;
+    color: var(--textcomment);
+}
+.aboutmeSection .aboutmeContain .profileIntro3{
+    display: flex;
+    justify-content: space-between;
+}
+.aboutmeSection .aboutmeContain .profileIntro3 span{
+    font-family: 'Quantico', sans-serif;
+    font-size: 1.2rem;
+    color: var(--textcomment);
+    letter-spacing: 5px;
+}
+
+.aboutmeSection .aboutmeContain .note{
+  margin-top: 40px;
+  font-family: 'Codystar', cursive;
+  font-size: 1rem;
+  
+  letter-spacing: 5px;
+}
+.aboutmeSection .aboutmeContain .note span{
+    color: var(--purple);
+}
+
+
+
+
+/* ---------Education-section---------- */
+#education{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.educationSection{
+    min-height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+}
+.educationSection h2{
+    color: var(--purple);
+    margin: 12px 30px;
+    font-family: 'Yuji Mai', serif;
+}
+
+/* .educationSection h2 .outer{
+    width: 160px;
+    height: 5px;
+    border: 1px solid var(--gray);
+    border-radius: 15%;
+}
+.educationSection h2 .inner{
+    width: 10px;
+    height: 5px;
+    background-color: var(--gray);
+    border-radius: 15%;
+    animation: animateDesign1 3s  infinite;
+	animation-timing-function: linear;
+}
+@keyframes animateDesign1 {
+    0%{
+        margin-left: 0px;
+       }
+     10%{
+          margin-left: 16px;
+       }
+     20%{
+          margin-left: 32px;
+       }
+     30%{
+          margin-left: 48px;
+       }
+     40%{
+          margin-left: 64px;
+       }
+     50%{
+          margin-left: 80px;
+       }
+     60% {
+          margin-left: 96px;
+       }
+     70% {
+          margin-left: 112px;
+       }
+     80%{
+          margin-left: 128px;
+       }
+     90%{
+          margin-left: 144px;
+       }
+     100%{
+          margin-left: 160px;
+       }
+} */
+
+.educationSection h2 span{
+    color: var(--purple);
+}
+
+.educationSection .educationSectionContain{
+    min-height: 100px;
+    width: 90%;
+    margin: 92px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.educationSection .educationSectionContain .eduBx{
+    width: 45%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.educationSection .educationSectionContain .eduBx .eduLogo{
+    border-top: 2px solid var(--purple);
+    border-bottom: 2px solid var(--purple);
+    padding: 2vmax;
+}
+
+.educationSection .educationSectionContain .eduBx .eduLogo  ion-icon{
+    font-size:3rem;
+    color: lightgreen;
+    transition: all 0.5s;
+    animation: colorChange 10s linear  infinite  ;
+
+}
+@keyframes colorChange {
+    0%{
+        color:#ff2972;
+        
+    }
+    12%{
+        color:#fee800;
+        
+    }
+    24%{
+        color:#04c443;
+    }
+    36%{
+        color:#fe00f1;
+    }
+    48%{
+        color:#00b0fe;
+    }
+    60%{
+        color:#fea600;
+    }
+    80%{
+        color:#a529ff;
+    }
+    100%{
+        color:#01bdab;
+    }
+    
+}
+
+.educationSection .educationSectionContain .eduBx .eduDet h2{
+    color: var(--light);
+    margin: 0 0 ;
+}
+.educationSection .educationSectionContain .eduBx .eduDet p{
+    color: var(--purple);
+    font-size: 1rem;
+    margin: 5px;
+}
+
+.educationSection .educationSectionContain .eduBx .eduDet .ranks{
+    color: var(--textcomment);
+}
+
+
+/* -----------Skill Section----------- */
+#skill{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.skillSection{
+    min-height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+}
+.skillSection h2{
+    color: var(--purple);
+    margin: 12px 30px;
+    font-family: 'Yuji Mai', serif;
+}
+
+/* .skillSection h2 .outer{
+    width: 100px;
+    height: 5px;
+    border: 1px solid var(--gray);
+    border-radius: 15%;
+}
+.skillSection h2 .inner{
+    width: 10px;
+    height: 5px;
+    background-color: var(--gray);
+    border-radius: 15%;
+    animation: animateDesign2 3s  infinite;
+	animation-timing-function: linear;
+}
+@keyframes animateDesign2 {
+    0%{
+        margin-left: 0px;
+       }
+     10%{
+          margin-left: 10px;
+       }
+     20%{
+          margin-left: 20px;
+       }
+     30%{
+          margin-left: 30px;
+       }
+     40%{
+          margin-left: 40px;
+       }
+     50%{
+          margin-left: 50px;
+       }
+     60% {
+          margin-left: 60px;
+       }
+     70% {
+          margin-left: 70px;
+       }
+     80%{
+          margin-left: 80px;
+       }
+     90%{
+          margin-left: 90px;
+       }
+     100%{
+          margin-left: 100px;
+       }
+} */
+
+
+.skillSection h2 span{
+    color: var(--purple);
+}
+
+.skillSection .skillSectionContain
+{
+    min-height: 50vh;
+    width: 90%;
+    margin: 92px auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.skillSection .skillSectionContain .bx{
+    width: 30%;
+    
+}
+.skillSection .skillSectionContain .bx > h4{
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.3rem;
+    margin: 20px 0;
+    letter-spacing: 5px;
+}
+.skillSection .skillSectionContain .bx  > h6 {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1rem;
+    margin: 15px 0;
+    color: var(--textcomment);
+}
+.skillSection .skillSectionContain .bx >div>img {
+    /* border: 1px solid var(--purple); */
+    transition: all .9s;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--purple);
+    opacity: 0.6;
+    animation: animationCool 1s  infinite alternate;
+	animation-timing-function: linear;
+}
+
+.skillSection .skillSectionContain .bx >div>img:hover{
+    transform: rotate(360deg);
+    transform: scale(1.3);
+    opacity: 1;
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+
+
+/* -------------Project -section ------------ */
+
+#project{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.projectSection{
+    min-height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+}
+.projectSection h2{
+    color: var(--purple);
+    margin: 12px 30px;
+    font-family: 'Yuji Mai', serif;
+}
+
+.projectSection h2 .outer{
+    width: 130px;
+    height: 5px;
+    border: 1px solid var(--gray);
+    border-radius: 15%;
+}
+.projectSection h2 .inner{
+    width: 10px;
+    height: 5px;
+    background-color: var(--gray);
+    border-radius: 15%;
+    animation: animateDesign3 3s  infinite;
+	animation-timing-function: linear;
+}
+@keyframes animateDesign3 {
+    0%{
+        margin-left: 0px;
+       }
+     10%{
+          margin-left: 12px;
+       }
+     20%{
+          margin-left: 24px;
+       }
+     30%{
+          margin-left: 36px;
+       }
+     40%{
+          margin-left: 48px;
+       }
+     50%{
+          margin-left: 60px;
+       }
+     60% {
+          margin-left: 72px;
+       }
+     70% {
+          margin-left: 84px;
+       }
+     80%{
+          margin-left: 96px;
+       }
+     90%{
+          margin-left: 108px;
+       }
+     100%{
+          margin-left: 120px;
+       }
+}
+.projectSection h2 span{
+    color: var(--purple);
+}
+.projectSection p{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.projectSection .projectSectionContain
+{
+    /* border: 1px solid white; */
+    min-height: 50vh;
+    width: 95%;
+    margin: 72px auto;
+    
+}
+
+
+.box {
+    width:65vw;
+    margin: 12px auto;
+    padding: 15px 5px;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: space-around;
+  }
+.innner-bx{
+      width: 20vw;
+      background: var(--bg-color);
+      color:white;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding : 12px 0;
+      box-shadow: 0 2px 2px #010a149a;
+      cursor: pointer;
+      transition:0.4s all;
+  }
+.innner-bx:hover{
+      transform: translate(-2px,-8px);
+
+  }
+.in-bx-top{
+      width:20vw;
+      margin: auto;
+  /* 	border: 1px solid #b3a2a2; */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+.red-dot-class{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+.red-dot-class font{
+      font-family: 'Ubuntu Mono', monospace;
+      color: crimson;
+      font-weight: bold;
+      font-size:1.2rem;
+      margin-left: 3px;
+  }
+.red-dot-class .outer{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 15px;
+      height: 15px;
+      border:2px solid red;
+      border-radius: 50%;
+      animation: indicator 2s reverse infinite;
+  }
+@keyframes indicator {
+    0%{
+        opacity:0.1;
+      }
+    12%{
+         opacity:0.2;
+      }
+    25%{
+         opacity:0.3;
+      }
+    25%{
+         opacity:0.4;
+      }
+    35%{
+         opacity:0.5;
+      }
+    50%{
+         opacity:0.6;
+      }
+    75% {
+         opacity:0.7;
+      }
+    85% {
+         opacity:0.8;
+      }
+    100%{
+         opacity:1;
+      }
+  }
+.red-dot-class .outer .inner{
+      width: 8px;
+      height: 8px;
+      background-color: crimson;
+      border-radius: 50%;
+  }
+.in-bx-mid{
+  /* 	border: 1px solid #b3a2a2; */
+      width:20vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:12px 2px;
+  }
+.in-bx-mid img{
+      width:13vw;
+     height:22vh;
+  }
+.in-bx-about{
+
+      width: 18vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+.in-bx-about h4{
+    font-family: 'VT323', monospace;
+    font-size:1.3rem;
+    color:var(--light);
+  }
+.in-bx-about p{
+    border-top: 1px solid var(--light);
+    /* border-bottom: 1px solid var(--light); */
+    padding: 1vmax;
+    font-family: 'Advent Pro', sans-serif;
+    font-size:1rem;
+    font-weight: 600;
+    color:var(--header-link);
+  }
+.in-bx-bottom{
+    margin: 10px 0;
+    font-family: 'Codystar', cursive;
+    font-size:0.9rem;
+  }
+  .in-bx-bottom font{
+    font-weight: 900;
+    color:  #ff2972;;
+  }
+.bottom-btn{
+	text-align: center;
+}
+.bottom-btn button{
+	padding: 10px 12px;
+    /* border: 2px solid var(--header-link); */
+    border: none;
+    outline: none;
+    background: var(--purple);
+    color: var(--bg);
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition:0.1s ease-in-out all ;
+}
+
+.bottom-btn button:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+
+
+/* --------------qoate ----------- */
+#qoutePara{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.qoutePara{
+    height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.qoutePara p{
+    font-family: 'Fasthand', cursive;
+    /* border: 1px solid white; */
+    color: var(--purple);
+    text-align: center;
+    font-size: 1.6rem;
+    /* text-shadow: 0 0 10px lightblue; */
+}
+.qoutePara div{
+    margin: 40px 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.qoutePara div img{
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--purple),
+    0 0 1px var(--purple),
+    0 0 1px  var(--purple);
+    transition: all 0.5s;
+    animation: specialEffext 5s linear  infinite alternate;
+}
+
+@keyframes specialEffext {
+    0%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
+
+.qoutePara hr{
+    margin: 2vmax 0;
+    width: 100%;
+    border: .2px dotted var(--purple);
+}
+.qoutePara a .blogBtn{
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-family: 'Mukta', sans-serif;
+    background-color: var(--purple);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: black;
+}
+.qoutePara a .blogBtn:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+
+/* ----------Contact section-------------- */
+#contact{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.contactSection{
+    min-height: 100vh;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 2vmax;
+}
+.contactSection h2{
+    color: var(--purple);
+    margin: 12px 30px;
+    font-family: 'Yuji Mai', serif;
+}
+.contactSection h2 span{
+    color: var(--purple);
+}
+
+.contactSection  .contactSectionContain{
+    /* border: 1px solid white; */
+    border-radius: 15px;
+    min-height: 80vh;
+    width: 95%;
+    margin: 32px auto;
+    display: flex;
+    /* box-shadow: 0 0 1px #ff2972,
+    0 0 2px #04c443,
+    0 0 3px #ff2972; */
+}
+
+.contactSection  .contactSectionContain .cleft{
+    /* border: 1px solid lightcoral; */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 60%;
+    /* background-color: #2e2f3e; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contactSection  .contactSectionContain .cleft h3{
+    margin: 20px 0;
+    display: flex;
+}
+.contactSection  .contactSectionContain .cleft h3 span ion-icon{
+    color: red;
+
+}
+.contactSection  .contactSectionContain .cleft h3 p{
+    margin-left: 5px;
+   font-size: .9rem;
+   color: var(--light);
+   font-family: 'Advent Pro', sans-serif;
+}
+.contactSection  .contactSectionContain .cleft form{
+    width: 90%;
+}
+.contactSection  .contactSectionContain .cleft form input ,textarea,.cbutton{
+    width: 100%;
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+.contactSection  .contactSectionContain .cleft form textarea{
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Yuji Mai', serif;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"]{
+    border: none;
+    border-bottom: 1.5px solid var(--textcomment);
+    font-family: 'Yuji Mai', serif;
+    padding: 10px 0;
+    outline: none;
+    background: none;
+}
+.contactSection  .contactSectionContain .cleft form .cbutton{
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background-color: var(--light);
+    color: var(--bg);
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.contactSection  .contactSectionContain .cleft form .cbutton ion-icon{
+    color:inherit;
+    margin-left: 10px;
+}
+.contactSection  .contactSectionContain .cleft form .cbutton:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+.contactSection  .contactSectionContain .cright{
+    /* border: 1px solid lightgreen; */
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 40%;
+    /* background-color: #d9d4e7; */
+
+    
+}
+.contactSection  .contactSectionContain .cright h2{
+ font-size: 1.3rem;
+ margin-left: 40px;
+}
+.contactSection  .contactSectionContain .cright p{
+    font-size: .9rem;
+    margin-left: 40px;
+}
+.contactSection  .contactSectionContain .cright .crightBox{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: 20px auto;
+}
+.contactSection  .contactSectionContain .cright .crightBox .bx{
+    display: flex;
+    margin: 30px 0;
+}
+.contactSection  .contactSectionContain .cright .crightBox .bx .lft{
+    margin-right: 10px;
+
+}
+.contactSection  .contactSectionContain .cright .crightBox .bx .rgt>font{
+    font-family: 'Yuji Mai', serif;
+    
+}
+
+.contactSection  .contactSectionContain .cright .bottonSocialMedia{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */ 
+}
+.contactSection  .contactSectionContain .cright .bottonSocialMedia>a{
+    font-size: 2rem;
+    margin: 0 5px;
+    border: 1px solid var(--col);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--col);
+    cursor: pointer;
+
+    
+}
+.contactSection .contactSectionContain .cright .bottonSocialMedia>a ion-icon{
+    color: inherit;
+    cursor: pointer;
+}
+
+.contactSection .contactSectionContain .cright .bottonSocialMedia >a:hover{
+    transition: 0s;
+    background-color: var(--col);
+    color:#333;
+    box-shadow: 0 0 10px var(--col),
+    0 0 30px var(--col),
+    0 0 50px var(--col);
+}
+
+.Cmsg{
+    margin:50px auto ;
+    border-radius: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+}
+.Cmsg p{
+    color: lightgreen;
+}
+
+/* 
+
+
+----------------->   Font-Family   <------------------- 
+
+font-family: 'Advent Pro', sans-serif;
+font-family: 'Alumni Sans Collegiate One', sans-serif;
+font-family: 'Amatic SC', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Blaka Hollow', cursive;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Bungee Spice', cursive;
+font-family: 'Caveat', cursive;
+font-family: 'Chewy', cursive;
+font-family: 'Codystar', cursive;
+font-family: 'Creepster', cursive;
+font-family: 'Dawning of a New Day', cursive;
+font-family: 'DynaPuff', cursive;
+font-family: 'Fasthand', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Inconsolata', monospace;
+font-family: 'Inspiration', cursive;
+font-family: 'Island Moments', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Kanit', sans-serif;
+font-family: 'Marck Script', cursive;
+font-family: 'Megrim', cursive;
+font-family: 'Mukta', sans-serif;
+font-family: 'Nabla', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quantico', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Rubik Burned', cursive;
+font-family: 'Rubik Distressed', cursive;
+font-family: 'Satisfy', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Silkscreen', cursive;
+font-family: 'Splash', cursive;
+font-family: 'VT323', monospace;
+font-family: 'Yellowtail', cursive;
+font-family: 'Yuji Mai', serif;
+
+
+
+
+
+
+
+
+*/

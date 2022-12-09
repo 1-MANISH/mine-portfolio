@@ -1,0 +1,310 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Alumni+Sans+Collegiate+One&family=Amatic+SC&family=Bangers&family=Bebas+Neue&family=Blaka+Hollow&family=Bungee+Shade&family=Bungee+Spice&family=Caveat:wght@700&family=Chewy&family=Codystar:wght@300;400&family=Creepster&family=Dawning+of+a+New+Day&family=DynaPuff&family=Fasthand&family=Fredoka+One&family=Gloria+Hallelujah&family=Great+Vibes&family=Inconsolata:wght@200&family=Inspiration&family=Island+Moments&family=Josefin+Sans:wght@300&family=Kanit:wght@100&family=Marck+Script&family=Megrim&family=Mukta:wght@400;700;800&family=Nabla&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,500;1,400;1,500&family=Quantico:ital,wght@0,400;0,700;1,400&family=Roboto+Mono&family=Rubik+Burned&family=Rubik+Distressed&family=Satisfy&family=Shadows+Into+Light&family=Silkscreen&family=Splash&family=VT323&family=Yellowtail&family=Yuji+Mai&display=swap');
+
+
+/* -----------> Root Properties <------------- */
+:root{
+    --purple: #682ae9;
+    --light: #dbdbdb;
+    --header-link: #dbdbdb;
+    --header-link-hover: #682ae9;
+    --header-link-hover-icon: #dbdbdb;
+    --header-link-active: #555;
+    --bg: #0e1212;
+    --bg-rgb: 14,18,18;
+    --bgLight: radial-gradient(var(--bg),transparent,var(--purple) 130%);
+    --gray: grey;
+    --textcomment: #555;
+    --bg-color:#031a30;
+
+    --text-pcard-Head:#020826;
+    --text-pcard-para:#716040;
+
+	--formColor: #020f1d;
+    --projectCardColor: #eaddcf;
+
+}
+
+
+/*  ------------Css setters----------------- */
+*{
+    box-sizing: border-box;
+    color: white;
+    cursor: none;
+}
+body{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    font-family: 'Yuji Mai', serif;
+}
+
+
+
+/* -------------Custom cursor---------------- */
+.cursor{
+    z-index: 100000000;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #ff2972;
+    pointer-events: none;
+}
+.cursor::after{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ff2972;
+    border-radius: 100%;
+    content: "";
+    position: absolute;
+    top: -4%;
+    left: -4%;
+    transition: all 3s;
+    animation: cursorMoves 2s infinite linear alternate;
+}
+@keyframes cursorMoves {
+    from{
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    to{
+        transform: scale(1.9);
+        opacity: 0.6;
+    }
+}
+
+/* Nav bar */
+
+nav{
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--bg);
+    position: fixed;
+    top: 0;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.backBtn{
+    margin: 20px 40px;
+    font-size: 1.2rem;
+    font-family: 'Mukta', sans-serif;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px  var(--bg-color),
+    0 0 10px  var(--bg-color),
+    0 0 10px var(--bg-color);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.backBtn:hover{
+    color: var(--bg);
+    background:#ff2972 ;
+    box-shadow: 0 0 10px #ff2972,
+    0 0 10px #ff2972,
+    0 0 10px #ff2972;
+}
+.backBtn span{
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+.backBtn span i{
+    color: inherit;
+}
+/* Home section */
+
+#home{
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid #eaddcf; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.homeContainer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("https://images.unsplash.com/photo-1654011130120-b83db08b0565?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5N3xxUFlzRHp2Sk9ZY3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+.homeContainer{
+    padding: 2vmax;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContainer .h-heading{
+    font-family: 'Codystar', cursive;
+    color:var(--purple);
+    font-size: 4rem;
+    margin: 5px 0;
+}
+.homeContainer .h-desc1{
+    font-family: 'Codystar', cursive;
+    font-size: 1.7rem;
+    color:#a529ff;
+    margin: 5px 0;
+}
+.homeContainer .h-desc2{
+    color: #fea600;
+    font-size: 1.7rem;
+    font-family: 'Codystar', cursive;
+    margin: 5px 0;
+}
+
+
+/* Blog section */
+#blog{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--light);
+}
+
+.blogContainer{
+    margin-top: 5vmax;
+    width: 90vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.blogcontain{
+    background-color: var(--bg-color);
+    font-family: 'Advent Pro', sans-serif;
+    width: 70vw;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px var(--bg-color),
+    0 0 20px var(--bg-color),
+    0 0 30px var(--bg-color);
+    z-index: 0;
+   
+}
+.blogcontain .topBox{
+    width: 70vw;
+    height: 50vh;
+    position: relative;
+}
+.blogcontain .topBox::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvZGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.blogcontain .midBox{
+    padding: 2vmax;
+    width: 70vw;
+    background-color: var(--light);
+}
+.blogcontain .midBox span{
+    color: #ff2972;
+    margin: 0 10px;
+}
+.blogcontain .botBox{
+    padding: 2vmax;
+    width: 70vw;
+    height: 80vh;
+    overflow: scroll;
+}
+.botBox h4{
+    color: var(--purple);
+    font-size: 2rem;
+}
+.botBox p{
+    font-size: 1.5rem;
+}
+.botBox .link{
+    font-size: 1.3rem;
+}
+.botBox h5{
+    font-size: 1.4rem;
+}
+.botBox ul li{
+    font-size: 1.2rem;
+    padding: 1vmax;
+}
+/* 
+
+
+----------------->   Font-Family   <------------------- 
+
+font-family: 'Advent Pro', sans-serif;
+font-family: 'Alumni Sans Collegiate One', sans-serif;
+font-family: 'Amatic SC', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Blaka Hollow', cursive;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Bungee Spice', cursive;
+font-family: 'Caveat', cursive;
+font-family: 'Chewy', cursive;
+font-family: 'Codystar', cursive;
+font-family: 'Creepster', cursive;
+font-family: 'Dawning of a New Day', cursive;
+font-family: 'DynaPuff', cursive;
+font-family: 'Fasthand', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Inconsolata', monospace;
+font-family: 'Inspiration', cursive;
+font-family: 'Island Moments', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Kanit', sans-serif;
+font-family: 'Marck Script', cursive;
+font-family: 'Megrim', cursive;
+font-family: 'Mukta', sans-serif;
+font-family: 'Nabla', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quantico', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Rubik Burned', cursive;
+font-family: 'Rubik Distressed', cursive;
+font-family: 'Satisfy', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Silkscreen', cursive;
+font-family: 'Splash', cursive;
+font-family: 'VT323', monospace;
+font-family: 'Yellowtail', cursive;
+font-family: 'Yuji Mai', serif;
+
+
+
+*/
